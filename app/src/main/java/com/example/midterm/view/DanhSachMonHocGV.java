@@ -29,7 +29,7 @@ public class DanhSachMonHocGV extends AppCompatActivity {
     private TextView tvHoten, tvTenKhoa;
     private List<LopTinChiTheoGV> data = new ArrayList<>();
     CustomAdapterLTC adapterLTC;
-    public static  TTGiangVienAPI thongTinGV;
+    private TTGiangVienAPI thongTinGV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +55,8 @@ public class DanhSachMonHocGV extends AppCompatActivity {
                 Toast.makeText(DanhSachMonHocGV.this, "Call API Error TTGV", Toast.LENGTH_LONG).show();
             }
         });
-        // danh sách ltc
 
+        // danh sách ltc
         ApiService.apiService.danhSachLTCTheoMaGV(maGV).enqueue(new Callback<List<LopTinChiTheoGV>>() {
             @Override
             public void onResponse(Call<List<LopTinChiTheoGV>>call, Response<List<LopTinChiTheoGV>> response) {

@@ -3,6 +3,7 @@ package com.example.midterm.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -34,11 +35,12 @@ public class DanhSachSinhVienLTC extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_danh_sach_sinh_vien_ltc);
         Init();
-        setEvent();
         DocDL();
+        setEvent();
     }
 
-    private void DocDL() {
+    public void DocDL() {
+        data.clear();
         LopTinChiTheoGV ltc = (LopTinChiTheoGV) getIntent().getSerializableExtra("LTC");
         tvTenMon.setText(ltc.getTenMH().trim() + "");
         tvMaMon.setText(ltc.getMaMH().trim() + "");

@@ -11,6 +11,8 @@ public class SinhVienLTC {
     private String maSV;
     @SerializedName("MALOP")
     private String maLop;
+    @SerializedName("MALTC")
+    private int maLTC;
     @SerializedName("DIEM")
     private float diem;
 
@@ -63,5 +65,13 @@ public class SinhVienLTC {
 
     public void setDiem(float diem) {
         this.diem = diem;
+    }
+
+    public int getMaLTC() {
+        return maLTC;
+    }
+
+    public void setMaLTC(int maLTC) {
+        this.maLTC = maLTC;
     }
 }
