@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".view.XemDiem"
+            android:exported="true" />
+        <activity
             android:name=".view.DanhSachSinhVienLTC"
             android:exported="false" />
         <activity

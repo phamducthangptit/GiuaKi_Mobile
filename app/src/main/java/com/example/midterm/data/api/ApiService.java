@@ -1,7 +1,7 @@
 package com.example.midterm.data.api;
 
-import static java.net.InetAddress.getLocalHost;
 
+import com.example.midterm.data.model.DiemHocKi;
 import com.example.midterm.data.model.DiemSinhVienLTC;
 import com.example.midterm.data.model.LopTinChiTheoGV;
 import com.example.midterm.data.model.SinhVienLTC;
@@ -9,8 +9,6 @@ import com.example.midterm.data.model.TTGiangVienAPI;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.List;
 
 import retrofit2.Call;
@@ -23,7 +21,7 @@ import retrofit2.http.Query;
 
 public interface ApiService {
 //    IP ip = new IP();
-    String baseURL = "http://10.251.2.73:8080/api/";
+    String baseURL = "http://192.168.1.10:8080/api/";
     Gson gson = new GsonBuilder().create();
 
     ApiService apiService = new Retrofit.Builder()
@@ -46,4 +44,13 @@ public interface ApiService {
 
     @POST("lop-tin-chi/nhap-diem")
     Call<Void> capNhatDiem(@Body DiemSinhVienLTC diemSinhVienLTC);
+
+    @GET("xem-diem/danh-sach-hoc-ki")
+    Call<List<String>> danhSachHK(@Query("ma-sinh-vien") String maSV, @Query("nien-khoa") String nienKhoa);
+
+    @GET("xem-diem/danh-sach-nam-hoc")
+    Call<List<String>> danhSachNamHoc(@Query("ma-sinh-vien") String maSV);
+
+    @GET("xem-diem/diem-hoc-ki")
+    Call<List<DiemHocKi>> diemHocKi(@Query("ma-sinh-vien") String maSV, @Query("nien-khoa") String nienKhoa, @Query("hoc-ki") int hocKi);
 }
