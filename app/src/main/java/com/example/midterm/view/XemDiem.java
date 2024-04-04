@@ -9,11 +9,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.midterm.R;
 import com.example.midterm.adapter.CustomAdapterDiemHocKi;
 import com.example.midterm.data.api.ApiService;
 import com.example.midterm.data.model.DiemHocKi;
+import com.example.midterm.data.model.SinhVien;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,7 @@ import retrofit2.Response;
 public class XemDiem extends AppCompatActivity {
     private Spinner spNamHoc, spHocKi;
     private TextView tvSTCDki, tvSTCDat, tvSTCKhongDat, tvDiemTk10, tvDiemTk4;
+    private TextView tvHoTenSv, tvMssv;
     private ArrayAdapter adapter_namHoc, adapter_hocKi;
     private int code;
 
@@ -42,7 +45,28 @@ public class XemDiem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_xem_diem);
         Init();
+        DocThongTinCaNhan();
         DocDuLieuSpinner();
+    }
+
+    private void DocThongTinCaNhan() {
+        String maSV = "N15DCCN001";
+        ApiService.apiService.thongTinCaNhan(maSV).enqueue(new Callback<SinhVien>() {
+            @Override
+            public void onResponse(Call<SinhVien> call, Response<SinhVien> response) {
+                if(response.code() == 200){
+                    SinhVien sv = response.body();
+                    tvHoTenSv.setText(sv.getHo() + " " + sv.getTen());
+                    tvMssv.setText(sv.getMaSV());
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SinhVien> call, Throwable throwable) {
+
+            }
+        });
     }
 
     private void DocDuLieuDiem(String maSV) {
@@ -152,6 +176,8 @@ public class XemDiem extends AppCompatActivity {
 
     private void Init() {
         data.clear();
+        tvHoTenSv = findViewById(R.id.tvTenSV);
+        tvMssv = findViewById(R.id.tvMSSV);
         spNamHoc = findViewById(R.id.spNamHoc);
         spHocKi = findViewById(R.id.spHocKi);
         lvDiem = findViewById(R.id.lvDiem);

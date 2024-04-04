@@ -4,6 +4,7 @@ package com.example.midterm.data.api;
 import com.example.midterm.data.model.DiemHocKi;
 import com.example.midterm.data.model.DiemSinhVienLTC;
 import com.example.midterm.data.model.LopTinChiTheoGV;
+import com.example.midterm.data.model.SinhVien;
 import com.example.midterm.data.model.SinhVienLTC;
 import com.example.midterm.data.model.TTGiangVienAPI;
 import com.google.gson.Gson;
@@ -53,4 +54,7 @@ public interface ApiService {
 
     @GET("xem-diem/diem-hoc-ki")
     Call<List<DiemHocKi>> diemHocKi(@Query("ma-sinh-vien") String maSV, @Query("nien-khoa") String nienKhoa, @Query("hoc-ki") int hocKi);
+
+    @GET("sinh-vien/thong-tin-ca-nhan")
+    Call<SinhVien> thongTinCaNhan(@Query("ma-sv") String maSV);
 }
