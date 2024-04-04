@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.midterm.R;
 import com.example.midterm.adapter.CustomAdapterDiemHocKi;
@@ -23,6 +24,7 @@ import retrofit2.Response;
 
 public class XemDiem extends AppCompatActivity {
     private Spinner spNamHoc, spHocKi;
+    private TextView tvSTCDki, tvSTCDat, tvSTCKhongDat, tvDiemTk10, tvDiemTk4;
     private ArrayAdapter adapter_namHoc, adapter_hocKi;
     private int code;
 
@@ -51,6 +53,7 @@ public class XemDiem extends AppCompatActivity {
                 if(response.code() == 200){
                     data.addAll(response.body());
                     setAdapterDiemHocKi();
+                    setThongKe(data);
                 }
             }
 
@@ -124,10 +127,38 @@ public class XemDiem extends AppCompatActivity {
         });
 
     }
+    private void setThongKe(List<DiemHocKi> data){
+        int tongSTC = 0, stcDat = 0, stcKhongDat = 0;
+        float diemTk10 = 0, diemTk4 = 0, tongDiem10 = 0, tongDiem4 = 0;
+        for(DiemHocKi dhk : data){
+            dhk.setDiemTK4VaDiemTKC(dhk.getDiemTK10());
+            tongSTC += dhk.getSoTinChi();
+            if(dhk.getKetQua()){
+                stcDat += dhk.getSoTinChi();
+            }
+            tongDiem10 += dhk.getDiemTK10();
+            tongDiem4 += dhk.getDiemTK4();
+        }
+        stcKhongDat = tongSTC - stcDat;
+        diemTk10 = (float) (Math.round(tongDiem10 / data.size() * 100.0) / 100.0);
+        diemTk4 = (float) (Math.round(tongDiem4 /data.size() * 100.0) / 100.0);
+
+        tvSTCDki.setText(tongSTC + "");
+        tvSTCDat.setText(stcDat + "");
+        tvSTCKhongDat.setText(stcKhongDat + "");
+        tvDiemTk10.setText(diemTk10 + "");
+        tvDiemTk4.setText(diemTk4 + "");
+    }
 
     private void Init() {
+        data.clear();
         spNamHoc = findViewById(R.id.spNamHoc);
         spHocKi = findViewById(R.id.spHocKi);
         lvDiem = findViewById(R.id.lvDiem);
+        tvSTCDki = findViewById(R.id.tvSTCDki);
+        tvSTCDat = findViewById(R.id.tvSTCDat);
+        tvSTCKhongDat = findViewById(R.id.tvSTCKhongDat);
+        tvDiemTk10 = findViewById(R.id.tvDiemTk10);
+        tvDiemTk4 = findViewById(R.id.tvDiemTk4);
     }
 }

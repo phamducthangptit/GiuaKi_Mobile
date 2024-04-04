@@ -7,20 +7,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+
+        >
     <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:text="INT1334"
         android:layout_weight="1"
         android:id="@+id/tvMaMH"
-        android:textSize="12dp"/>
+        android:paddingLeft="5dp"
+        android:gravity="center_vertical"
+        android:textSize="9dp"/>
     <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:text="Cấu trúc dữ liệu và giải thuật"
         android:layout_weight="3"
         android:textSize="12dp"
+        android:gravity="center"
         android:id="@+id/tvTenMH" />
 
     <TextView
@@ -29,6 +34,7 @@
         android:text="3"
         android:layout_weight="1"
         android:textSize="12dp"
+        android:gravity="center"
         android:id="@+id/tvSTC" />
     <TextView
         android:layout_width="0dp"
@@ -36,6 +42,7 @@
         android:text="10"
         android:textSize="12dp"
         android:id="@+id/tvDiemThi"
+        android:gravity="center"
         android:layout_weight="1" />
     <TextView
         android:layout_width="0dp"
@@ -43,6 +50,7 @@
         android:text="9.0"
         android:layout_weight="1"
         android:id="@+id/tvDiemTK10"
+        android:gravity="center"
         android:textSize="12dp" />
     <TextView
         android:layout_width="0dp"
@@ -50,6 +58,7 @@
         android:text="3.8"
         android:layout_weight="1"
         android:id="@+id/tvDiemTK4"
+        android:gravity="center"
         android:textSize="12dp" />
     <TextView
         android:layout_width="0dp"
@@ -57,12 +66,14 @@
         android:text="A"
         android:layout_weight="1"
         android:id="@+id/tvDiemTKC"
+        android:gravity="center"
         android:textSize="12dp" />
     <ImageView
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:id="@+id/imgTrangThai"
+        android:gravity="center"
         android:src="@drawable/done_20px"/>
     </LinearLayout>
 </LinearLayout>
