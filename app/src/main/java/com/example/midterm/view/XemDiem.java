@@ -29,7 +29,6 @@ public class XemDiem extends AppCompatActivity {
     private TextView tvSTCDki, tvSTCDat, tvSTCKhongDat, tvDiemTk10, tvDiemTk4;
     private TextView tvHoTenSv, tvMssv;
     private ArrayAdapter adapter_namHoc, adapter_hocKi;
-    private int code;
 
     private List<String> danhSachNamHoc = new ArrayList<>();
     private List<String> danhSachHocKi = new ArrayList<>();
@@ -44,25 +43,25 @@ public class XemDiem extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_xem_diem);
-        Init();
-        DocThongTinCaNhan();
-        DocDuLieuSpinner();
-    }
+            Init();
+            DocThongTinCaNhan();
+            DocDuLieuSpinner();
+        }
 
-    private void DocThongTinCaNhan() {
-        String maSV = "N15DCCN001";
-        ApiService.apiService.thongTinCaNhan(maSV).enqueue(new Callback<SinhVien>() {
-            @Override
-            public void onResponse(Call<SinhVien> call, Response<SinhVien> response) {
-                if(response.code() == 200){
-                    SinhVien sv = response.body();
-                    tvHoTenSv.setText(sv.getHo() + " " + sv.getTen());
-                    tvMssv.setText(sv.getMaSV());
+        private void DocThongTinCaNhan() {
+            String maSV = "N15DCCN001";
+            ApiService.apiService.thongTinCaNhan(maSV).enqueue(new Callback<SinhVien>() {
+                @Override
+                public void onResponse(Call<SinhVien> call, Response<SinhVien> response) {
+                    if(response.code() == 200){
+                        SinhVien sv = response.body();
+                        tvHoTenSv.setText(sv.getHo() + " " + sv.getTen());
+                        tvMssv.setText(sv.getMaSV());
 
+                    }
                 }
-            }
 
-            @Override
+                @Override
             public void onFailure(Call<SinhVien> call, Throwable throwable) {
 
             }

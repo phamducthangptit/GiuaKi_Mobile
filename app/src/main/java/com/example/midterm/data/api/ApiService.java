@@ -3,6 +3,8 @@ package com.example.midterm.data.api;
 
 import com.example.midterm.data.model.DiemHocKi;
 import com.example.midterm.data.model.DiemSinhVienLTC;
+import com.example.midterm.data.model.He;
+import com.example.midterm.data.model.Lop;
 import com.example.midterm.data.model.LopTinChiTheoGV;
 import com.example.midterm.data.model.SinhVien;
 import com.example.midterm.data.model.SinhVienLTC;
@@ -22,7 +24,7 @@ import retrofit2.http.Query;
 
 public interface ApiService {
 //    IP ip = new IP();
-    String baseURL = "http://192.168.1.10:8080/api/";
+    String baseURL = "http://192.168.1.7:8080/api/";
     Gson gson = new GsonBuilder().create();
 
     ApiService apiService = new Retrofit.Builder()
@@ -57,4 +59,13 @@ public interface ApiService {
 
     @GET("sinh-vien/thong-tin-ca-nhan")
     Call<SinhVien> thongTinCaNhan(@Query("ma-sv") String maSV);
+
+    @GET("lop/danh-sach-lop")
+    Call<List<Lop>> danhSachLopCuaKhoa(@Query("ma-gv") String maGV, @Query("trang-thai") int trangThai);
+
+    @GET("he-dao-tao/danh-sach")
+    Call<List<He>> danhSachHeDaoTao();
+
+    @POST("lop/them-lop")
+    Call<Void> themLop(@Body Lop lop);
 }

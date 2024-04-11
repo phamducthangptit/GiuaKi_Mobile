@@ -131,7 +131,7 @@ public class CustomAdapterSinhVienLTC extends ArrayAdapter {
                 ApiService.apiService.capNhatDiem(diemSv).enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
-                        Log.d("code_API", response.code() + "");
+//                        Log.d("code_API", response.code() + "");
                         if(response.code() == 200){
                             diemTK = (float) ((0.1 * diemCC) + (0.3 * diemGK) + (0.6 * diemCK));
                             ChangeData();
