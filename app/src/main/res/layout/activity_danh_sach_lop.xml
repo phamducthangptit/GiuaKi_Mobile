@@ -182,6 +182,7 @@
                         android:textStyle="bold"
                         android:layout_weight="5"
                         android:text="Công nghệ thông tin"
+                        android:id="@+id/tvTenKhoa1"
                         android:gravity="center"/>
                 </LinearLayout>
                 <LinearLayout
@@ -199,6 +200,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
+                        android:id="@+id/searchViewLop"
                         />
                 </LinearLayout>
                 <LinearLayout
