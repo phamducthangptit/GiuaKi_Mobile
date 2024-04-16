@@ -25,6 +25,7 @@ import com.example.midterm.R;
 import com.example.midterm.data.api.ApiService;
 import com.example.midterm.data.model.DiemSinhVienLTC;
 import com.example.midterm.data.model.SinhVienLTC;
+import com.example.midterm.view.DanhSachLop;
 import com.example.midterm.view.DanhSachSinhVienLTC;
 
 import java.util.List;
@@ -131,7 +132,6 @@ public class CustomAdapterSinhVienLTC extends ArrayAdapter {
                 ApiService.apiService.capNhatDiem(diemSv).enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
-//                        Log.d("code_API", response.code() + "");
                         if(response.code() == 200){
                             diemTK = (float) ((0.1 * diemCC) + (0.3 * diemGK) + (0.6 * diemCK));
                             ChangeData();

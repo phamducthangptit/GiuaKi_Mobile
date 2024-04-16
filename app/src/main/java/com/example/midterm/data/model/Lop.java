@@ -46,7 +46,7 @@ public class Lop {
         this.khoaHoc = khoaHoc;
     }
 
-    public boolean isTrangThai() {
+    public boolean getTrangThai() {
         return trangThai;
     }
 

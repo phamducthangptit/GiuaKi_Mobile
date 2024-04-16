@@ -9,6 +9,8 @@ public class TTGiangVienAPI implements Serializable {
     private String ho;
     @SerializedName("TEN")
     private String ten;
+    @SerializedName("MAKHOA")
+    private String maKhoa;
     @SerializedName("TENKHOA")
     private String tenKhoa;
 
@@ -43,5 +45,13 @@ public class TTGiangVienAPI implements Serializable {
 
     public void setTenKhoa(String tenKhoa) {
         this.tenKhoa = tenKhoa;
+    }
+
+    public String getMaKhoa() {
+        return maKhoa;
+    }
+
+    public void setMaKhoa(String maKhoa) {
+        this.maKhoa = maKhoa;
     }
 }
