@@ -26,7 +26,7 @@ import retrofit2.http.Query;
 
 public interface ApiService {
 //    IP ip = new IP();
-    String baseURL = "http://192.168.1.7:8080/api/";
+    String baseURL = "http://192.168.1.14:8080/api/";
     Gson gson = new GsonBuilder().create();
 
     ApiService apiService = new Retrofit.Builder()

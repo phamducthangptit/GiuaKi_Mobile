@@ -39,6 +39,8 @@ public class XemDiem extends AppCompatActivity {
 
     private ListView lvDiem;
 
+    private String maSV = "N15DCCN001";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +51,6 @@ public class XemDiem extends AppCompatActivity {
         }
 
         private void DocThongTinCaNhan() {
-            String maSV = "N15DCCN001";
             ApiService.apiService.thongTinCaNhan(maSV).enqueue(new Callback<SinhVien>() {
                 @Override
                 public void onResponse(Call<SinhVien> call, Response<SinhVien> response) {
@@ -93,7 +94,6 @@ public class XemDiem extends AppCompatActivity {
     }
 
     private void DocDuLieuSpinner() {
-        String maSV = "N15DCCN001";
         // Gan du lieu cho nam hoc
         ApiService.apiService.danhSachNamHoc(maSV).enqueue(new Callback<List<String>>() {
             @Override
