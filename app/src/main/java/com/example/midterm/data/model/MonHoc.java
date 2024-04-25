@@ -1,10 +1,17 @@
 package com.example.midterm.data.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class MonHoc {
+    @SerializedName("MAMH")
     private String maMH;
+    @SerializedName("TENMH")
     private String tenMH;
+    @SerializedName("SOTIET_LT")
     private int soTietLT;
+    @SerializedName("SOTIET_TH")
     private int soTietTH;
+    @SerializedName("SOTINCHI")
     private int soTinChi;
 
     public MonHoc() {

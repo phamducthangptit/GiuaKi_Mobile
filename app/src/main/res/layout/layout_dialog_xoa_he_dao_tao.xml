@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_white_corner_16"
+    android:layout_margin="16dp">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+    android:text="Thông báo"
+    android:textSize="20dp"
+    android:textStyle="bold"
+    android:gravity="center"
+    android:textColor="#F1E8E8"
+    android:background="@drawable/bg_red_corner_16_topleft_topright"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Bạn có thực sự muốn xóa hệ đào tạo?"
+        android:textSize="16dp"
+        android:id="@+id/tvMaLop"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="Bạn có thực sự muốn xóa lớp?"
+        android:textSize="16dp"
+        android:id="@+id/tvtenHeDT"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="16dp">
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:textSize="16sp"
+        android:id="@+id/btnHuy"
+        android:text="Hủy"/>
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_weight="1"
+        android:id="@+id/btnOk"
+        android:backgroundTint="@color/red"
+        android:text="OK"/>
+</LinearLayout>
+</LinearLayout>
+</LinearLayout>
