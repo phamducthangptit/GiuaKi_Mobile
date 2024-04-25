@@ -3,10 +3,10 @@ package com.example.midterm.data.model;
 import com.google.gson.annotations.SerializedName;
 
 public class He {
-    @SerializedName("id")
+    @SerializedName("ID_HE")
     private int id;
 
-    @SerializedName("tenHe")
+    @SerializedName("TEN_HE")
     private String tenHe;
 
     public He() {

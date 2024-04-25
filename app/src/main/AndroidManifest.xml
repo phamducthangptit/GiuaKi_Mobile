@@ -16,8 +16,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".view.LopTinChi"
-            android:exported="false" />
+            android:name=".view.DanhSachNganh"
+            android:exported="true" />
+        <activity
+            android:name=".view.DanhSachHeDaoTao"
+            android:exported="true" />
+        <activity
+            android:name=".view.DanhSachLopTinChi"
+            android:exported="true" />
         <activity
             android:name=".view.DanhSachLop"
             android:exported="true" />

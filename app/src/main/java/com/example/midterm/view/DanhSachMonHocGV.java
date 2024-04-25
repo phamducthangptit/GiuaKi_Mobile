@@ -3,15 +3,13 @@ package com.example.midterm.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.midterm.R;
-import com.example.midterm.adapter.CustomAdapterLTC;
+import com.example.midterm.adapter.CustomAdapterLTCTheoGV;
 import com.example.midterm.data.api.ApiService;
 import com.example.midterm.data.model.LopTinChiTheoGV;
 import com.example.midterm.data.model.TTGiangVienAPI;
@@ -28,7 +26,7 @@ public class DanhSachMonHocGV extends AppCompatActivity {
     private ImageButton imgBtnBack, imgBtnLogout;
     private TextView tvHoten, tvTenKhoa;
     private List<LopTinChiTheoGV> data = new ArrayList<>();
-    CustomAdapterLTC adapterLTC;
+    CustomAdapterLTCTheoGV adapterLTC;
     private TTGiangVienAPI thongTinGV;
 
     @Override
@@ -74,7 +72,7 @@ public class DanhSachMonHocGV extends AppCompatActivity {
     }
 
     private void setAdapterLvMonHoc() {
-        adapterLTC = new CustomAdapterLTC(this, R.layout.layout_item_monhoc, data);
+        adapterLTC = new CustomAdapterLTCTheoGV(this, R.layout.layout_item_monhoc, data);
         lvMonHoc.setAdapter(adapterLTC);
     }
 

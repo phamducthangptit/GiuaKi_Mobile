@@ -47,6 +47,7 @@ public class CustomAdapterLop extends ArrayAdapter {
         this.resource = resource;
         this.data = data;
     }
+    private int check = 0;
 
     @NonNull
     @Override
@@ -203,6 +204,7 @@ public class CustomAdapterLop extends ArrayAdapter {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
+                check = 0;
             }
         });
 
@@ -225,6 +227,7 @@ public class CustomAdapterLop extends ArrayAdapter {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if(response.code() == 200){
+                            check = 1;
                             dialog.dismiss();
                         }
                     }
@@ -241,7 +244,8 @@ public class CustomAdapterLop extends ArrayAdapter {
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialogInterface) {
-                ((DanhSachLop) context).DocDuLieuLop();
+                if(check == 1)
+                    ((DanhSachLop) context).DocDuLieuLop();
             }
         });
         dialog.show();

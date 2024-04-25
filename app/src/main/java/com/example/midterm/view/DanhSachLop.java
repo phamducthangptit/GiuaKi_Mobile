@@ -7,7 +7,6 @@ import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -206,7 +205,7 @@ public class DanhSachLop extends AppCompatActivity {
     }
 
     public void DocDuLieuLop(){
-        String maGV = "GV04";
+        String maGV = "GV01";
         ApiService.apiService.thongTinGiangVien(maGV).enqueue(new Callback<TTGiangVienAPI>() {
             @Override
             public void onResponse(Call<TTGiangVienAPI> call, Response<TTGiangVienAPI> response) {
